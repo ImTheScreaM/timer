@@ -7,6 +7,12 @@ const hoursBlock = document.getElementById('hours'),
 	btnStop = document.getElementById('btn-stop'),
 	btnReset = document.getElementById('btn-reset')
 
+if (window.confirm('Confirm pls >3')) {
+	containerBlock.style.display = "block"
+} else {
+	window.close()
+}
+
 let interval
 let hours = 0
 let minutes = 0
