@@ -18,10 +18,6 @@ function startTimer() {
 
 	milisecondBlock.innerHTML = milisecond
 
-	if (milisecond == 100) {
-		milisecondBlock.innerHTML = '00'
-	}
-
 	if (milisecond > 99) {
 		second++
 		secondBlock.innerHTML = '0' + second
@@ -33,6 +29,7 @@ function startTimer() {
 	if (second > 59) {
 		minutes++
 		minutesBlock.innerHTML = '0' + minutes
+		second = 0
 	}
 	if (minutes > 9) {
 		minutesBlock.innerHTML = minutes
@@ -52,11 +49,15 @@ function stopTimer() {
 }
 
 function resetTimer() {
+	clearInterval(interval)
+	hours = 0
+	minutes = 0
+	second = 0
+	milisecond = 0
 	hoursBlock.innerHTML = '00'
 	minutesBlock.innerHTML = '00'
 	secondBlock.innerHTML = '00'
 	milisecondBlock.innerHTML = '00'
-	clearInterval(interval)
 }
 
 btnStart.addEventListener('click', () => {
